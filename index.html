@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui Veut Gagner des Millions - Spécial Setter 🐕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Écran d'accueil -->
+        <div id="welcome-screen" class="screen active">
+            <div class="logo">
+                <div class="diamond">💎</div>
+                <h1>QUI VEUT GAGNER<br><span class="millions">DES MILLIONS</span></h1>
+                <div class="subtitle">Édition Spéciale Setter</div>
+            </div>
+            <div class="welcome-message">
+                <p>Bienvenue <strong>Alex</strong> !</p>
+                <p>Prêt à tester tes connaissances sur les chiens et la noble race des Setters ?</p>
+            </div>
+            <button class="start-btn" onclick="startGame()">
+                <span>JOUER</span>
+            </button>
+        </div>
+
+        <!-- Écran de jeu -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="prize-ladder" id="prize-ladder"></div>
+                <div class="question-area">
+                    <div class="phase-badge" id="phase-badge">WARM-UP</div>
+                    <div class="prize-current" id="prize-current">100 €</div>
+                    <div class="question-number" id="question-number">Question 1/15</div>
+                    <div class="question-box" id="question-box">
+                        <p id="question-text"></p>
+                    </div>
+                    <div class="answers-grid" id="answers-grid"></div>
+                    <div class="lifelines" id="lifelines">
+                        <button class="lifeline-btn" id="lifeline-5050" onclick="use5050()" title="50:50">
+                            <span>50:50</span>
+                        </button>
+                        <button class="lifeline-btn" id="lifeline-phone" onclick="usePhone()" title="Appel à un ami">
+                            <span>📞</span>
+                        </button>
+                        <button class="lifeline-btn" id="lifeline-audience" onclick="useAudience()" title="Avis du public">
+                            <span>👥</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Écran de résultat -->
+        <div id="result-screen" class="screen">
+            <div class="result-content" id="result-content"></div>
+            <button class="start-btn" onclick="restartGame()">
+                <span>REJOUER</span>
+            </button>
+        </div>
+
+        <!-- Modal joker -->
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal" id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
