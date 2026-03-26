@@ -1,0 +1,245 @@
+<style>
+  .cmp-wrap {
+    --cmp-dark: #0f172a;
+    --cmp-accent: #6366f1;
+    --cmp-trad: #6366f1;
+    --cmp-rapide: #f97316;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 2.5rem 0;
+  }
+
+  .cmp-wrap *,
+  .cmp-wrap *::before,
+  .cmp-wrap *::after {
+    box-sizing: border-box;
+  }
+
+  /* ── Header ── */
+  .cmp-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .cmp-header-card {
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .cmp-header-card--trad {
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+  }
+
+  .cmp-header-card--rapide {
+    background: linear-gradient(135deg, #f97316, #fb923c);
+  }
+
+  .cmp-header-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .cmp-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cmp-header-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .cmp-header-sub {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+  }
+
+  /* ── Rows ── */
+  .cmp-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cmp-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .cmp-cell {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    position: relative;
+  }
+
+  .cmp-cell:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+  }
+
+  .cmp-cell--trad { border-top: 3px solid var(--cmp-trad); }
+  .cmp-cell--rapide { border-top: 3px solid var(--cmp-rapide); }
+
+  .cmp-cell-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+  }
+
+  .cmp-cell-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cmp-dark);
+    line-height: 1.4;
+  }
+
+  .cmp-cell-note {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 4px;
+    line-height: 1.3;
+    font-style: italic;
+  }
+
+  /* ── Critere label (centered between cells) ── */
+  .cmp-critere {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .cmp-critere-tag {
+    background: var(--cmp-dark);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .cmp-header {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .cmp-header-card {
+      padding: 16px 18px;
+    }
+
+    .cmp-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .cmp-cell {
+      padding: 14px 16px;
+    }
+  }
+</style>
+
+<div class="cmp-wrap">
+
+  <!-- Header cards -->
+  <div class="cmp-header">
+    <div class="cmp-header-card cmp-header-card--trad">
+      <div class="cmp-header-icon">🍽️</div>
+      <div class="cmp-header-info">
+        <span class="cmp-header-title">Restauration traditionnelle</span>
+        <span class="cmp-header-sub">Code NAF 56.10A</span>
+      </div>
+    </div>
+    <div class="cmp-header-card cmp-header-card--rapide">
+      <div class="cmp-header-icon">⚡</div>
+      <div class="cmp-header-info">
+        <span class="cmp-header-title">Restauration rapide</span>
+        <span class="cmp-header-sub">Code NAF 56.10C</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparatif rows -->
+  <div class="cmp-rows">
+
+    <!-- Service -->
+    <div class="cmp-critere"><span class="cmp-critere-tag">Service</span></div>
+    <div class="cmp-row">
+      <div class="cmp-cell cmp-cell--trad">
+        <div class="cmp-cell-label">Traditionnelle</div>
+        <div class="cmp-cell-value">À table, en salle</div>
+      </div>
+      <div class="cmp-cell cmp-cell--rapide">
+        <div class="cmp-cell-label">Rapide</div>
+        <div class="cmp-cell-value">Au comptoir, à emporter, livraison</div>
+      </div>
+    </div>
+
+    <!-- Ticket moyen -->
+    <div class="cmp-critere"><span class="cmp-critere-tag">Ticket moyen</span></div>
+    <div class="cmp-row">
+      <div class="cmp-cell cmp-cell--trad">
+        <div class="cmp-cell-label">Traditionnelle</div>
+        <div class="cmp-cell-value">Plus élevé</div>
+      </div>
+      <div class="cmp-cell cmp-cell--rapide">
+        <div class="cmp-cell-label">Rapide</div>
+        <div class="cmp-cell-value">Plus faible</div>
+      </div>
+    </div>
+
+    <!-- Volume -->
+    <div class="cmp-critere"><span class="cmp-critere-tag">Volume</span></div>
+    <div class="cmp-row">
+      <div class="cmp-cell cmp-cell--trad">
+        <div class="cmp-cell-label">Traditionnelle</div>
+        <div class="cmp-cell-value">Moins de couverts</div>
+      </div>
+      <div class="cmp-cell cmp-cell--rapide">
+        <div class="cmp-cell-label">Rapide</div>
+        <div class="cmp-cell-value">Plus de rotations</div>
+      </div>
+    </div>
+
+    <!-- Nuisances -->
+    <div class="cmp-critere"><span class="cmp-critere-tag">Nuisances perçues</span></div>
+    <div class="cmp-row">
+      <div class="cmp-cell cmp-cell--trad">
+        <div class="cmp-cell-label">Traditionnelle</div>
+        <div class="cmp-cell-value">Modérées</div>
+      </div>
+      <div class="cmp-cell cmp-cell--rapide">
+        <div class="cmp-cell-label">Rapide</div>
+        <div class="cmp-cell-value">Parfois plus élevées</div>
+        <div class="cmp-cell-note">Odeurs, flux de clients, livraisons</div>
+      </div>
+    </div>
+
+  </div>
+</div>
