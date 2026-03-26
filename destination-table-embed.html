@@ -1,0 +1,351 @@
+<style>
+  .dest-wrap {
+    --dest-dark: #0f172a;
+    --dest-accent: #6366f1;
+    --dest-light: #f8fafc;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 2.5rem 0;
+  }
+
+  .dest-wrap *,
+  .dest-wrap *::before,
+  .dest-wrap *::after {
+    box-sizing: border-box;
+  }
+
+  /* ── Cards layout ── */
+  .dest-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dest-card {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .dest-card:hover {
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.10), 0 0 0 1px rgba(99, 102, 241, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* ── Left accent bar ── */
+  .dest-bar { border-radius: 14px 0 0 14px; }
+  .dest-bar--green  { background: #22c55e; }
+  .dest-bar--yellow { background: #eab308; }
+  .dest-bar--orange { background: #f97316; }
+  .dest-bar--red    { background: #ef4444; }
+  .dest-bar--dark   { background: #7f1d1d; }
+
+  /* ── Card inner ── */
+  .dest-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+  }
+
+  /* ── Type column ── */
+  .dest-type-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dest-type-label {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--dest-dark);
+    line-height: 1.3;
+  }
+
+  .dest-example-text {
+    font-size: 13px;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* ── Liberte column ── */
+  .dest-liberte {
+    display: flex;
+    align-items: center;
+  }
+
+  .dest-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .dest-pill--green  { background: #f0fdf4; color: #166534; }
+  .dest-pill--yellow { background: #fefce8; color: #854d0e; }
+  .dest-pill--orange { background: #fff7ed; color: #9a3412; }
+  .dest-pill--red    { background: #fef2f2; color: #991b1b; }
+  .dest-pill--dark   { background: #fef2f2; color: #7f1d1d; }
+
+  .dest-pill-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dest-pill--green  .dest-pill-dot { background: #22c55e; }
+  .dest-pill--yellow .dest-pill-dot { background: #eab308; }
+  .dest-pill--orange .dest-pill-dot { background: #f97316; }
+  .dest-pill--red    .dest-pill-dot { background: #ef4444; }
+  .dest-pill--dark   .dest-pill-dot { background: #7f1d1d; }
+
+  /* ── Risk gauge ── */
+  .dest-risk {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    min-width: 130px;
+  }
+
+  .dest-risk-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .dest-risk-label--green  { color: #166534; }
+  .dest-risk-label--yellow { color: #854d0e; }
+  .dest-risk-label--orange { color: #9a3412; }
+  .dest-risk-label--red    { color: #991b1b; }
+  .dest-risk-label--dark   { color: #7f1d1d; }
+
+  .dest-gauge {
+    width: 100%;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .dest-gauge-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .dest-gauge--green  .dest-gauge-fill { width: 15%;  background: #22c55e; }
+  .dest-gauge--yellow .dest-gauge-fill { width: 40%;  background: #eab308; }
+  .dest-gauge--orange .dest-gauge-fill { width: 60%;  background: #f97316; }
+  .dest-gauge--red    .dest-gauge-fill { width: 80%;  background: #ef4444; }
+  .dest-gauge--dark   .dest-gauge-fill { width: 100%; background: #7f1d1d; }
+
+  /* ── Header row ── */
+  .dest-header {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    background: var(--dest-dark);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+
+  .dest-header-bar {
+    background: var(--dest-accent);
+    border-radius: 14px 0 0 14px;
+  }
+
+  .dest-header-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 20px;
+    padding: 14px 24px;
+  }
+
+  .dest-header-text {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #94a3b8;
+  }
+
+  .dest-header-text:last-child {
+    text-align: right;
+    min-width: 130px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .dest-inner {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 16px 18px;
+    }
+
+    .dest-header-inner {
+      display: none;
+    }
+
+    .dest-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dest-header::after {
+      content: 'Clause de destination';
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+    }
+
+    .dest-header-bar { display: none; }
+
+    .dest-risk {
+      align-items: flex-start;
+      min-width: unset;
+    }
+
+    .dest-liberte {
+      justify-content: flex-start;
+    }
+
+    .dest-card {
+      grid-template-columns: 6px 1fr;
+    }
+  }
+</style>
+
+<div class="dest-wrap">
+
+  <!-- Header -->
+  <div class="dest-header">
+    <div class="dest-header-bar"></div>
+    <div class="dest-header-inner">
+      <span class="dest-header-text">Type de destination</span>
+      <span class="dest-header-text">Liberté</span>
+      <span class="dest-header-text">Risque si changement</span>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="dest-cards">
+
+    <!-- 1 · Tous commerces -->
+    <div class="dest-card">
+      <div class="dest-bar dest-bar--green"></div>
+      <div class="dest-inner">
+        <div class="dest-type-col">
+          <span class="dest-type-label">Tous commerces</span>
+          <span class="dest-example-text">"Le preneur pourra exercer toute activité commerciale"</span>
+        </div>
+        <div class="dest-liberte">
+          <span class="dest-pill dest-pill--green">
+            <span class="dest-pill-dot"></span> Liberté totale
+          </span>
+        </div>
+        <div class="dest-risk">
+          <span class="dest-risk-label dest-risk-label--green">Faible</span>
+          <div class="dest-gauge dest-gauge--green"><div class="dest-gauge-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Mixte -->
+    <div class="dest-card">
+      <div class="dest-bar dest-bar--yellow"></div>
+      <div class="dest-inner">
+        <div class="dest-type-col">
+          <span class="dest-type-label">Mixte</span>
+          <span class="dest-example-text">"Restauration sous toutes ses formes"</span>
+        </div>
+        <div class="dest-liberte">
+          <span class="dest-pill dest-pill--yellow">
+            <span class="dest-pill-dot"></span> Libre dans la restauration
+          </span>
+        </div>
+        <div class="dest-risk">
+          <span class="dest-risk-label dest-risk-label--yellow">Modéré</span>
+          <div class="dest-gauge dest-gauge--yellow"><div class="dest-gauge-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 · Restrictive -->
+    <div class="dest-card">
+      <div class="dest-bar dest-bar--orange"></div>
+      <div class="dest-inner">
+        <div class="dest-type-col">
+          <span class="dest-type-label">Restrictive</span>
+          <span class="dest-example-text">"Restauration traditionnelle à l'exclusion de tout autre usage"</span>
+        </div>
+        <div class="dest-liberte">
+          <span class="dest-pill dest-pill--orange">
+            <span class="dest-pill-dot"></span> Un seul type de restauration
+          </span>
+        </div>
+        <div class="dest-risk">
+          <span class="dest-risk-label dest-risk-label--orange">Élevé</span>
+          <div class="dest-gauge dest-gauge--orange"><div class="dest-gauge-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 · Restrictive + contrainte technique -->
+    <div class="dest-card">
+      <div class="dest-bar dest-bar--red"></div>
+      <div class="dest-inner">
+        <div class="dest-type-col">
+          <span class="dest-type-label">Restrictive + contrainte technique</span>
+          <span class="dest-example-text">"Restauration rapide sans extraction et sans cuisson"<br>"Restauration traditionnelle sans extraction"</span>
+        </div>
+        <div class="dest-liberte">
+          <span class="dest-pill dest-pill--red">
+            <span class="dest-pill-dot"></span> Activité ET moyens verrouillés
+          </span>
+        </div>
+        <div class="dest-risk">
+          <span class="dest-risk-label dest-risk-label--red">Très élevé</span>
+          <div class="dest-gauge dest-gauge--red"><div class="dest-gauge-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 · Ultra-restrictive -->
+    <div class="dest-card">
+      <div class="dest-bar dest-bar--dark"></div>
+      <div class="dest-inner">
+        <div class="dest-type-col">
+          <span class="dest-type-label">Ultra-restrictive</span>
+          <span class="dest-example-text">"Poké bowl" · "Sushi" · "Crêperie"</span>
+        </div>
+        <div class="dest-liberte">
+          <span class="dest-pill dest-pill--dark">
+            <span class="dest-pill-dot"></span> Un concept nommé
+          </span>
+        </div>
+        <div class="dest-risk">
+          <span class="dest-risk-label dest-risk-label--dark">Maximal</span>
+          <div class="dest-gauge dest-gauge--dark"><div class="dest-gauge-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
