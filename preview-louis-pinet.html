@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aperçu — Louis Pinet, Avocat</title>
+<style>
+  :root{
+    --bg:#f1f3f4; --card:#fff; --txt:#202124; --muted:#5f6368;
+    --blue:#1a73e8; --line:#e0e0e0; --chip:#f1f3f4;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg); color:var(--txt);
+    display:flex; justify-content:center; padding:32px 16px;
+  }
+  .panel{
+    width:100%; max-width:420px; background:var(--card);
+    border:1px solid var(--line); border-radius:12px; overflow:hidden;
+    box-shadow:0 1px 6px rgba(0,0,0,.12);
+  }
+  .hero{
+    background:linear-gradient(135deg,#0b3d2e,#14563f);
+    color:#fff; padding:24px; display:flex; gap:16px; align-items:center;
+  }
+  .avatar{
+    width:72px; height:72px; border-radius:50%; flex:0 0 auto;
+    background:#d4b15f; color:#0b3d2e; font-weight:700; font-size:26px;
+    display:flex; align-items:center; justify-content:center;
+    border:3px solid rgba(255,255,255,.4);
+  }
+  .hero h1{font-size:20px; margin:0 0 4px;}
+  .hero .role{font-size:13px; opacity:.9;}
+  .body{padding:20px 24px;}
+  .desc{font-size:14px; line-height:1.55; color:var(--txt); margin:0 0 18px;}
+  .section{margin-bottom:18px;}
+  .section h2{
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 8px;
+  }
+  .row{font-size:14px; padding:3px 0; color:var(--txt);}
+  .row b{font-weight:600;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px;}
+  .chip{
+    background:var(--chip); border:1px solid var(--line); border-radius:16px;
+    padding:5px 12px; font-size:12.5px; color:var(--txt);
+  }
+  .links{display:flex; flex-wrap:wrap; gap:10px;}
+  .links a{
+    font-size:13px; color:var(--blue); text-decoration:none;
+    display:inline-flex; align-items:center; gap:5px;
+  }
+  .links a:hover{text-decoration:underline;}
+  .footer{
+    border-top:1px solid var(--line); padding:12px 24px;
+    font-size:11px; color:var(--muted); background:#fafafa;
+    display:flex; align-items:center; gap:6px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#34a853;}
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="hero">
+      <div class="avatar">LP</div>
+      <div>
+        <h1>Louis Pinet</h1>
+        <div class="role">Avocat au Barreau de Nantes</div>
+      </div>
+    </div>
+
+    <div class="body">
+      <p class="desc">
+        Avocat spécialisé en droit des affaires CHR (cafés, hôtels, restaurants),
+        exclusivement du côté des restaurateurs : baux commerciaux, cessions de
+        fonds de commerce, franchise, structuration sociétaire, procédures collectives.
+      </p>
+
+      <div class="section">
+        <h2>Cabinet</h2>
+        <div class="row"><b>Louis Pinet, Avocat des Restaurateurs</b></div>
+        <div class="row"><a class="" href="https://www.louispinetavocat.fr" target="_blank" rel="noopener" style="color:#1a73e8;text-decoration:none">louispinetavocat.fr</a></div>
+      </div>
+
+      <div class="section">
+        <h2>Formation</h2>
+        <div class="row">Université Montesquieu-Bordeaux IV</div>
+        <div class="row">Université Paris 1 Panthéon-Sorbonne</div>
+        <div class="row">Universiteit Leiden</div>
+        <div class="row">École de formation des barreaux de la cour d'appel de Paris (EFB)</div>
+      </div>
+
+      <div class="section">
+        <h2>Domaines de compétence</h2>
+        <div class="chips">
+          <span class="chip">Bail commercial</span>
+          <span class="chip">Cession de fonds de commerce</span>
+          <span class="chip">Droit de la franchise</span>
+          <span class="chip">Procédures collectives</span>
+          <span class="chip">Droit des sociétés</span>
+          <span class="chip">Secteur CHR</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Profils &amp; références</h2>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/louispinet-avocat" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/louispinet__avocat_des_resto/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.wikidata.org/wiki/Q139964169" target="_blank" rel="noopener">Wikidata</a>
+          <a href="https://www.barreaunantes.fr/annuaire/louis-pinet/" target="_blank" rel="noopener">Barreau de Nantes</a>
+          <a href="https://www.doctrine.fr/p/avocat/L234937CD6128B9124F4F" target="_blank" rel="noopener">Doctrine</a>
+          <a href="https://justice.pappers.fr/avocat/pinet-louis-44000" target="_blank" rel="noopener">Pappers Justice</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="dot"></span> Aperçu généré depuis les données structurées schema.org (Person)
+    </div>
+  </div>
+</body>
+</html>
